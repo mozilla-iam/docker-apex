@@ -12,7 +12,7 @@ RUN curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sh
 
 # Install python 3.6.1
 
-RUN yum install gcc wget findutils zlib zlib-devel -y
+RUN yum install gcc wget findutils zlib zlib-devel openssl-devel libffi-devl -y
 
 WORKDIR /usr/src/
 
@@ -24,7 +24,7 @@ WORKDIR /usr/src/Python-3.6.1
 
 RUN ./configure --enable-optimizations
 
-RUN make altinstall
+RUN make install
 
 RUN rm /usr/src/Python-3.6.1.tgz
 
@@ -43,5 +43,7 @@ RUN pip install awscli
 RUN pip install awsmfa
 
 RUN mkdir /workspace
+
+WORKDIR /workspace
 
 RUN yum clean all
