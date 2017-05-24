@@ -12,7 +12,11 @@ RUN curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sh
 
 # Install python 3.6.1
 
-RUN yum install gcc wget findutils zlib zlib-devel openssl-devel libffi-devl -y
+RUN yum install \
+    gcc wget findutils \
+    zlib zlib-devel openssl-devel \
+    libffi-devl git \
+    -y
 
 WORKDIR /usr/src/
 
