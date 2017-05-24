@@ -27,3 +27,21 @@ RUN ./configure --enable-optimizations
 RUN make altinstall
 
 RUN rm /usr/src/Python-3.6.1.tgz
+
+# Install pip
+
+WORKDIR /root
+
+RUN wget https://bootstrap.pypa.io/get-pip.py
+
+RUN chmod +x get-pip.py
+
+RUN python get-pip.py
+
+RUN pip install awscli
+
+RUN pip install awsmfa
+
+RUN mkdir /workspace
+
+RUN yum clean all
