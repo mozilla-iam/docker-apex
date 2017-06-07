@@ -15,7 +15,7 @@ RUN curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sh
 RUN yum install \
     gcc wget findutils \
     zlib zlib-devel openssl-devel \
-    libffi-devl git \
+    libffi-devel git \
     -y
 
 WORKDIR /usr/src/
